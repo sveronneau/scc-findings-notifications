@@ -44,7 +44,7 @@ resource "google_cloudfunctions_function" "function" {
   available_memory_mb   = 256
   source_archive_bucket = google_storage_bucket.bucket.name
   source_archive_object = google_storage_bucket_object.zip.name
-  entry_point           = "helloPubSub"
+  entry_point           = "SCCfindings"
   region                = var.function_location
   
   event_trigger {
@@ -77,5 +77,3 @@ resource "google_scc_notification_config" "scc_notification" {
     filter              = var.notification_filter
   }
 }
-
-
