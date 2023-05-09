@@ -20,7 +20,7 @@ locals {
 
 data "archive_file" "source" {
   type                  = "zip"
-  source_file           = "${path.module}/index.js"
+  source_file           = "${path.module}/js/index.js"
   output_path           = "${path.module}/tmp/scc-googlechat-${local.timestamp}.zip"
 }
 
@@ -44,7 +44,7 @@ resource "google_cloudfunctions_function" "function" {
   available_memory_mb   = 256
   source_archive_bucket = google_storage_bucket.bucket.name
   source_archive_object = google_storage_bucket_object.zip.name
-  entry_point           = "SCCfindings"
+  entry_point           = "SCCPubSub"
   region                = var.function_location
   
   event_trigger {
