@@ -1,3 +1,11 @@
+# Google Cloud SCC Notifications to SendGrid
+
+https://cloud.google.com/security-command-center/docs/how-to-enable-real-time-notifications#sendgrid-email
+
+# Google Cloud SCC Notifications to Slack
+
+https://cloud.google.com/security-command-center/docs/how-to-enable-real-time-notifications#slack
+
 # Google Cloud SCC Notifications to Google Chat
 
 This repository contains provides example code to create Finding Notifications for Security Command Center, and sends the findings to Google Chat using a Webhook.
