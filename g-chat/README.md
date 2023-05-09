@@ -44,4 +44,5 @@ org_id                          = "CHANGE_ME"
 ```
 
 *Note: This code sample requires you to hardcode the Webhook URL as an environment variable, using the confidential flag for Terraform. For added security, and to safeguard credentials, consider using Secret Manager with Cloud Functions. For instructions, see [Using secrets](https://cloud.google.com/functions/docs/configuring/secrets) in Cloud Functions documentation.*
+
 *Repo inspired by https://github.com/GoogleCloudPlatform/solutions-terraform-scc-notifications-gchat and not forked because of innactivity.*
