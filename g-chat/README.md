@@ -25,6 +25,8 @@ The Cloud Function is written in Node.js which will parse the Pub/Sub event and 
 
 ## Usage
 
+Update the terraform.tfvars file with your ORG values then deploy using terraform.
+
 ```ruby
 module "scc_notifications" {
     source = "../"
