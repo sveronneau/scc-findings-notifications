@@ -1,3 +1,7 @@
+# Google Cloud SCC Notifications to Google Chat
+
+https://github.com/sveronneau/scc-findings-notifications/blob/main/g-chat/README.md
+
 # Google Cloud SCC Notifications to SendGrid
 
 https://cloud.google.com/security-command-center/docs/how-to-enable-real-time-notifications#sendgrid-email
