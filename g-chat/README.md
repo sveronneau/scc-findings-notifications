@@ -15,12 +15,12 @@ The Cloud Function is written in Node.js which will parse the Pub/Sub event and 
 
 ## Prerequisites 
 
-1. Tested on Terraform v1.0.11 with Google Cloud Provider v4.5.0
+1. Tested on Terraform v1.4.6 with Google Cloud Provider v4.64.0
 2. Google Cloud SDK
 3. Enable Cloud Functions API and Cloud Build API
 4. Enable Security Command Center
-5. Node.js runtime >= 16
-6. Create a Google Chat Webhook - info can be found [here](https://developers.google.com/chat/how-tos/webhooks)
+5. Node.js runtime >= 1.6
+6. Create a Google Chat Webhook - Info can be found [here](https://developers.google.com/chat/how-tos/webhooks#step_1_register_the_incoming_webhook) in Step 1.
 
 
 ## Usage
@@ -28,20 +28,20 @@ The Cloud Function is written in Node.js which will parse the Pub/Sub event and 
 Update the terraform.tfvars file with your ORG values then deploy using terraform.
 
 ```
-    bucket_name                     = "scc_gchat_notification_code"
-    bucket_location                 = "US"
-    function_name                   = "scc-notification-gchat"
-    function_description            = "SCC Notifications to Google Chat"
-    function_runtime                = "nodejs16"
-    function_location               = "us-central1"
-    topic_name                      = "scc-notifications-topic"    
-    topic_iam_role                  = "roles/pubsub.publisher"
-    scc_notification_name           = "all-active-alerts"    
-    scc_notification_description    = "My Custom Cloud Security Command Center Finding Notification Configuration"
-    notification_filter             = "(severity=\"HIGH\" OR severity=\"CRITICAL\") AND state=\"ACTIVE\""
-    gchat_webhook_url               = "CHANGE_ME"
-    org_id                          = "CHANGE_ME"
-    project_id                      = "CHANGE_ME"
+bucket_name                     = "scc_gchat_notification_code"
+bucket_location                 = "US"
+function_name                   = "scc-notification-gchat"
+function_description            = "SCC Notifications to Google Chat"
+function_runtime                = "nodejs16"
+function_location               = "us-central1"
+topic_name                      = "scc-notifications-topic"
+topic_iam_role                  = "roles/pubsub.publisher"
+scc_notification_name           = "all-active-alerts"
+scc_notification_description    = "My Custom Cloud Security Command Center Finding Notification Configuration"
+notification_filter             = "(severity=\"HIGH\" OR severity=\"CRITICAL\") AND state=\"ACTIVE\""
+gchat_webhook_url               = "CHANGE_ME"
+org_id                          = "CHANGE_ME"
+project_id                      = "CHANGE_ME"
 ```
 
 *Note: This code sample requires you to hardcode the Webhook URL as an environment variable, using the confidential flag for Terraform. For added security, and to safeguard credentials, consider using Secret Manager with Cloud Functions. For instructions, see [Using secrets](https://cloud.google.com/functions/docs/configuring/secrets) in Cloud Functions documentation.*
