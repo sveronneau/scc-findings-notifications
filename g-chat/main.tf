@@ -25,9 +25,10 @@ data "archive_file" "source" {
 }
 
 resource "google_storage_bucket" "bucket" {
-  name                  = var.bucket_name
-  location              = var.bucket_location
-  uniform_bucket_level_access = true
+  name                          = var.bucket_name
+  location                      = var.bucket_location
+  uniform_bucket_level_access   = true
+  project                       = var.project_id
 }
 
 resource "google_storage_bucket_object" "zip" {
@@ -40,6 +41,7 @@ resource "google_cloudfunctions_function" "function" {
   name                  = var.function_name
   description           = var.function_description
   runtime               = var.function_runtime
+  project               = var.project_id
 
   available_memory_mb   = 256
   source_archive_bucket = google_storage_bucket.bucket.name
@@ -59,6 +61,7 @@ resource "google_cloudfunctions_function" "function" {
 
 resource "google_pubsub_topic" "scc_topic" {
   name                  = var.topic_name
+  project               = var.project_id
 }
 
 resource "google_pubsub_topic_iam_member" "scc_topc_iam" {
