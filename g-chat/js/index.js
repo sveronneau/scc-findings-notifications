@@ -62,11 +62,6 @@ function processEvent(event, callback) {
     const eventTime = message.finding.eventTime;
     const eventTimeObj = new Date(eventTime);
     const when = eventTimeObj.toUTCString();
-    /*const ScannerName = message.finding.sourceProperties.ScannerName;*/
-    /*const Explanation = message.finding.sourceProperties.Explanation;*/
-    /*const externalUri = message.finding.externalUri;*/
-    /*const Recommendation = message.finding.sourceProperties.Recommendation;*/
-    /*const projectDisplayName = message.resource.projectDisplayName;*/
       
     const googleMessage = {
         cards: [{
@@ -88,13 +83,6 @@ function processEvent(event, callback) {
                             "contentMultiline": true
                         }
                     },
-                    /*{
-                        "keyValue": {
-                            "topLabel": "Scanner Name",
-                            "content": `${ScannerName}`,
-                            "contentMultiline": true
-                        }
-                    },*/
                     {
                         "keyValue": {
                             "topLabel": "Finding Class",
@@ -133,40 +121,15 @@ function processEvent(event, callback) {
                     {
                         "keyValue": {
                             "topLabel": "Link to SCC",
-                            "content": 'https://console.cloud.google.com/security/command-center/overview',
+                            "content": 'https://console.cloud.google.com/security/command-center/overview?organizationId=',
                             "contentMultiline": true,
                             "onClick": {
                                 "openLink": {
-                                    "url": 'https://console.cloud.google.com/security/command-center/overview'
+                                    "url": 'https://console.cloud.google.com/security/command-center/overview?organizationId='
                                 }                            
                             }
                         }
-                    }/*,                    
-                    {
-                        "keyValue": {
-                            "topLabel": "Explanation",
-                            "content": `${Explanation}`,
-                            "contentMultiline": true
-                        }
-                    },
-                    {
-                        "keyValue": {
-                            "topLabel": "Recommendation (click here)",
-                            "content": `${Recommendation}`,
-                            "contentMultiline": true,
-                            "onClick": {
-                                "openLink": {
-                                    "url": `${externalUri}`
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "keyValue": {
-                            "topLabel": "In Project",
-                            "content": `${projectDisplayName}`
-                        }
-                    }*/
+                    }
                 ]
             }]
         }]
