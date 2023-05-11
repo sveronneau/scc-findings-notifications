@@ -73,6 +73,11 @@ variable org_id {
   type = string
 }
 
+variable project_id {
+  description = "The Project unique ID that will host the bucket and function."
+  type = string
+}
+
 variable scc_notification_description {
   description = "The description of the notification config."
   type = string
@@ -81,5 +86,4 @@ variable scc_notification_description {
 variable notification_filter {
   description = "Expression that defines the filter to apply across create/update events of assets or findings as specified by the event type."
   type = string
-  default = "state = \"ACTIVE\""
 }
