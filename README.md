@@ -1,12 +1,16 @@
-# Google Cloud SCC Notifications to Google Chat
+# SCC Notifications to your channel of choice
+
+The goal of this repo is to allow Security Command Center users to get notified of Findings.  Most GCP users will turn on SCC but fail at getting notified which leads to potential security issues.
+
+## Google Cloud SCC Notifications to Google Chat
 
 https://github.com/sveronneau/scc-findings-notifications/blob/main/g-chat/README.md
 
-# Google Cloud SCC Notifications to Slack
+## Google Cloud SCC Notifications to Slack
 
 https://github.com/sveronneau/scc-findings-notifications/blob/main/slack/README.md
 
-# Google Cloud SCC Notifications to SendGrid
+## Google Cloud SCC Notifications to SendGrid
 
 https://github.com/sveronneau/scc-findings-notifications/blob/main/sendgrid/README.md
 
