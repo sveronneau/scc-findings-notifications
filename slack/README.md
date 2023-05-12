@@ -49,3 +49,7 @@ Update the terraform.tfvars file with your ORG values then deploy using terrafor
     project_id                      = "CHANGE_ME"
 
 ```
+
+*Note: This code sample requires you to hardcode user or application credentials. For added security, and to safeguard credentials, consider using Secret Manager with Cloud Functions.. For instructions, see [Using secrets](https://cloud.google.com/functions/docs/configuring/secrets) in Cloud Functions documentation.*
+
+*Python code coming from https://cloud.google.com/security-command-center/docs/how-to-enable-real-time-notifications#slack code snippet.*
