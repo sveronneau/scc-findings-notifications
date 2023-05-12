@@ -20,13 +20,12 @@ The Cloud Function is written in Node.js which will parse the Pub/Sub event and 
 3. Enable Cloud Functions API and Cloud Build API
 4. Enable Security Command Center
 5. Node.js runtime >= 1.6
-6. Create a Google Chat Webhook - Info can be found [here](https://developers.google.com/chat/how-tos/webhooks#step_1_register_the_incoming_webhook) in Step 1.
+6. Create a Slack App - Info can be found [here](https://cloud.google.com/security-command-center/docs/how-to-enable-real-time-notifications#setting_up_a_messaging_app).
 
 
 ## Usage
 
-Update the terraform.tfvars file with your ORG values then deploy using terraform.
-
+Update the terraform.tfvars file with your ORG and PROJECT IDs then deploy using terraform.
 ```
 bucket_name                     = "scc_gchat_notification_code"
 bucket_location                 = "US"
