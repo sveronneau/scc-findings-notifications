@@ -11,8 +11,7 @@ The infrastructure is written in Terraform, which will create the following comp
 - [Cloud Function](https://cloud.google.com/functions)
 - [Secrets Manager](https://cloud.google.com/secret-manager)
 
-The Cloud Function is written in Node.js which will parse the Pub/Sub event and send the details to a Google Chat Webhook using the a Card message with the Google Chat API.
-
+The Cloud Function is written in Node.js which will parse the Pub/Sub event and send the details to a Google Chat Webhook using a Card message with the Google Chat API.
 
 ## Prerequisites 
 
