@@ -20,7 +20,7 @@ const https = require('https');
 function postMessage(message, callback) {
     'use strict';
     const body = JSON.stringify(message);
-    const webHookUrl = process.env.webHookUrl;
+    const webHookUrl = process.env.notification_api_token;
     const options = url.parse(webHookUrl);
     options.method = 'POST';
     options.headers = {
