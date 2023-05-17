@@ -18,7 +18,7 @@ The Cloud Function is written in Node.js which will parse the Pub/Sub event and 
 
 1. Tested on Terraform v1.4.6 with Google Cloud Provider v4.64.0
 2. Google Cloud SDK
-3. Enable Cloud Functions API and Cloud Build API
+3. Enable Cloud Functions API, Cloud Build API and Secrets Manager API
 4. Enable Security Command Center
 5. Node.js runtime >= 1.6
 6. Create a Google Chat Webhook - info can be found [here](https://developers.google.com/chat/how-tos/webhooks#create_a_webhook)
