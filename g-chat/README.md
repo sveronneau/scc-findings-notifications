@@ -26,9 +26,9 @@ The Cloud Function is written in Node.js which will parse the Pub/Sub event and 
 
 ## Usage
 
-Update the terraform.tfvars file with your ORG and PROJECT IDs then deploy using terraform.  
-You will be prompted to enter the Incoming webhook G-Chat URL from step #6 during TF Apply and Deploy.  
-This value will be stored in Secrets Manager.
+- Update the terraform.tfvars file with your ORG and PROJECT IDs then deploy using terraform.  
+- You will be prompted to enter the Incoming webhook G-Chat URL from step #6 during TF Apply and Deploy.  
+- This value will be stored in Secrets Manager.
 ```
 bucket_name                     = "scc_gchat_notification_code"
 bucket_location                 = "US"
