@@ -18,14 +18,17 @@ The Cloud Function is written in Node.js which will parse the Pub/Sub event and 
 
 1. Tested on Terraform v1.4.6 with Google Cloud Provider v4.64.0
 2. Google Cloud SDK
-3. Enable Cloud Functions API, Cloud Build API and Secrets Manager API
-4. Enable Security Command Center
+3. Enable Cloud Functions, Cloud Build, Pub/Sub and Secrets Manager APIs.  
+   - gcloud services enable cloudfunctions.googleapis.com
+   - gcloud services enable cloudbuild.googleapis.com
+   - gcloud services enable pubsub.googleapis.com
+   - gcloud services enable secretmanager.googleapis.com
+4. Enable Security Command Center (UI)
 5. Node.js runtime >= 1.6
 6. Create a Google Chat Webhook - info can be found [here](https://developers.google.com/chat/how-tos/webhooks#create_a_webhook)
 
 
 ## Usage
-
 - Update the terraform.tfvars file with your ORG and PROJECT IDs then deploy using terraform.  
 - You will be prompted to enter the Incoming webhook G-Chat URL from step #6 during TF Apply and Deploy.  
 - This value will be stored in Secrets Manager.
