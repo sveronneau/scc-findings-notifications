@@ -54,9 +54,25 @@ resource "google_cloudfunctions_function" "function" {
       resource          = google_pubsub_topic.scc_topic.name
   }
 
-  environment_variables = {
-     webHookUrl         = var.gchat_webhook_url
-  }
+  secret_environment_variables {
+    key         = "notification_api_token"
+    project_id  = var.project_id
+    secret      = var.secret_id
+    version     = "latest"
+  }  
+
+  depends_on = [
+    google_secret_manager_secret.secret-scc
+  ]  
+}
+
+resource "google_project_iam_binding" "project" {
+  project   = var.project_id
+  role      = "roles/secretmanager.secretAccessor"
+
+  members = [
+    "serviceAccount:${var.project_id}@appspot.gserviceaccount.com",
+  ]
 }
 
 resource "google_pubsub_topic" "scc_topic" {
@@ -79,4 +95,22 @@ resource "google_scc_notification_config" "scc_notification" {
   streaming_config {
     filter              = var.notification_filter
   }
+}
+
+resource "google_secret_manager_secret" "secret-scc" {
+  project   = var.project_id
+  secret_id = var.secret_id
+
+  labels = {
+    label = "scc"
+  }
+
+  replication {
+    automatic = true
+  }
+}
+
+resource "google_secret_manager_secret_version" "secret-scc" {
+  secret = google_secret_manager_secret.secret-scc.id
+  secret_data = var.secret_data
 }
