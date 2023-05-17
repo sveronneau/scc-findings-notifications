@@ -9,6 +9,7 @@ The infrastructure is written in Terraform, which will create the following comp
 - [GCS Bucket](https://cloud.google.com/storage/docs/creating-buckets)
 - [GCS Object](https://cloud.google.com/storage/docs/json_api/v1/objects)
 - [Cloud Function](https://cloud.google.com/functions)
+- [Secrets Manager](https://cloud.google.com/secret-manager)
 
 The Cloud Function is written in Node.js which will parse the Pub/Sub event and send the details to a Google Chat Webhook using the a Card message with the Google Chat API.
 
@@ -20,7 +21,7 @@ The Cloud Function is written in Node.js which will parse the Pub/Sub event and 
 3. Enable Cloud Functions API and Cloud Build API
 4. Enable Security Command Center
 5. Node.js runtime >= 1.6
-6. Create a Google Chat Webhook - info can be found [here](https://developers.google.com/chat/how-tos/webhooks)
+6. Create a Google Chat Webhook - info can be found [here]([https://developers.google.com/chat/how-tos/webhooks](https://developers.google.com/chat/how-tos/webhooks#create_a_webhook))
 
 
 ## Usage
