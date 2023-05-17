@@ -46,12 +46,6 @@ variable function_location {
   type = string
 }
 
-variable gchat_webhook_url {
-  description = "WebHook URL created as the detination the send the alert to, from the Cloud Function."
-  type = string
-  sensitive = true
-}
-
 variable topic_name {
   description = "Name of the topic."
   type = string
@@ -86,4 +80,16 @@ variable scc_notification_description {
 variable notification_filter {
   description = "Expression that defines the filter to apply across create/update events of assets or findings as specified by the event type."
   type = string
+}
+
+variable secret_id {
+  description = "name of the secret to be defined in Secrets Manager"
+  type = string
+  default = "scc-gchat"
+}
+
+variable secret_data {
+  description = "Value of the secret to store in Secrets Manager.  Will be prompted to enter during Apply."
+  type = string
+  sensitive = true
 }
