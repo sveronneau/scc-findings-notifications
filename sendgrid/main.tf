@@ -37,6 +37,15 @@ resource "google_storage_bucket_object" "zip" {
   source                = data.archive_file.source.output_path
 }
 
+resource "google_project_iam_binding" "project" {
+  project   = var.project_id
+  role      = "roles/secretmanager.secretAccessor"
+
+  members = [
+    "serviceAccount:${var.project_id}@appspot.gserviceaccount.com",
+  ]
+}
+
 resource "google_cloudfunctions_function" "function" {
   name                  = var.function_name
   description           = var.function_description
@@ -53,6 +62,25 @@ resource "google_cloudfunctions_function" "function" {
       event_type        = "google.pubsub.topic.publish"
       resource          = google_pubsub_topic.scc_topic.name
   }
+  
+  environment_variables = {
+     ORG_ID     = var.org_id
+     PROJECT_ID = var.project_id
+     FROM_EMAIL = var.from_email
+     TO_EMAILS  = var.to_emails 
+     SECRET_ID  = var.secret_id
+  }
+  
+  secret_environment_variables {
+    key         = "notification_api_token"
+    project_id  = var.project_id
+    secret      = var.secret_id
+    version     = "latest"
+  }  
+
+  depends_on = [
+    google_secret_manager_secret.secret-scc
+  ]  
 }
 
 resource "google_pubsub_topic" "scc_topic" {
@@ -60,7 +88,7 @@ resource "google_pubsub_topic" "scc_topic" {
   project               = var.project_id
 }
 
-resource "google_pubsub_topic_iam_member" "scc_topc_iam" {
+resource "google_pubsub_topic_iam_member" "scc_topic_iam" {
   topic                 = google_pubsub_topic.scc_topic.name
   role                  = var.topic_iam_role
   member                = "serviceAccount:${google_scc_notification_config.scc_notification.service_account}"
@@ -75,4 +103,22 @@ resource "google_scc_notification_config" "scc_notification" {
   streaming_config {
     filter              = var.notification_filter
   }
+}
+
+resource "google_secret_manager_secret" "secret-scc" {
+  project   = var.project_id
+  secret_id = var.secret_id
+
+  labels = {
+    label = "scc"
+  }
+
+  replication {
+    automatic = true
+  }
+}
+
+resource "google_secret_manager_secret_version" "secret-scc" {
+  secret = google_secret_manager_secret.secret-scc.id
+  secret_data = var.secret_data
 }
