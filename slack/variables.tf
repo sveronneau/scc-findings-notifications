@@ -81,3 +81,19 @@ variable notification_filter {
   description = "Expression that defines the filter to apply across create/update events of assets or findings as specified by the event type."
   type = string
 }
+
+variable secret_id {
+  description = "name of the secret to be defined in Secrets Manager"
+  type = string  
+}
+
+variable secret_data {
+  description = "Value of the secret to store in Secrets Manager.  Will be prompted to enter during Apply."
+  type = string
+  sensitive = true
+}
+
+variable slack_channel {
+  description = "Slack channel name"
+  type = string  
+}
