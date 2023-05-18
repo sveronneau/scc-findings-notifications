@@ -84,8 +84,7 @@ variable notification_filter {
 
 variable secret_id {
   description = "name of the secret to be defined in Secrets Manager"
-  type = string
-  default = "scc-gchat"
+  type = string  
 }
 
 variable secret_data {

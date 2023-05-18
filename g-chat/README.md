@@ -11,7 +11,8 @@ The infrastructure is written in Terraform, which will create the following comp
 - [Cloud Function](https://cloud.google.com/functions)
 - [Secrets Manager](https://cloud.google.com/secret-manager)
 
-The Cloud Function is written in Node.js which will parse the Pub/Sub event and send the details to a Google Chat Webhook using a Card message with the Google Chat API.
+The Cloud Function is written in Node.js which will parse the Pub/Sub event and send the details to a Google Chat Webhook using the a Card message with the Google Chat API.
+
 
 ## Prerequisites 
 
@@ -23,12 +24,14 @@ The Cloud Function is written in Node.js which will parse the Pub/Sub event and 
    - gcloud services enable pubsub.googleapis.com
    - gcloud services enable secretmanager.googleapis.com
 4. Enable Security Command Center (UI)
-5. Create a Google Chat Webhook - info can be found [here](https://developers.google.com/chat/how-tos/webhooks#create_a_webhook)
+5. Node.js runtime >= 1.6
+6. Create a Google Chat Webhook - info can be found [here](https://developers.google.com/chat/how-tos/webhooks#create_a_webhook)
 
 
 ## Usage
+
 - Update the terraform.tfvars file with your ORG and PROJECT IDs then deploy using terraform.  
-- You will be prompted to enter the Incoming webhook G-Chat URL from step #5 during TF Apply and Deploy.  
+- You will be prompted to enter the Incoming webhook G-Chat URL from step #6 during TF Apply and Deploy.  
 - This value will be stored in Secrets Manager.
 ```
 bucket_name                     = "scc_gchat_notification_code"

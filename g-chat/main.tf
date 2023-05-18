@@ -54,6 +54,10 @@ resource "google_cloudfunctions_function" "function" {
       resource          = google_pubsub_topic.scc_topic.name
   }
 
+  environment_variables = {
+     org_id = var.org_id
+  }
+
   secret_environment_variables {
     key         = "notification_api_token"
     project_id  = var.project_id
@@ -80,7 +84,7 @@ resource "google_pubsub_topic" "scc_topic" {
   project               = var.project_id
 }
 
-resource "google_pubsub_topic_iam_member" "scc_topc_iam" {
+resource "google_pubsub_topic_iam_member" "scc_topic_iam" {
   topic                 = google_pubsub_topic.scc_topic.name
   role                  = var.topic_iam_role
   member                = "serviceAccount:${google_scc_notification_config.scc_notification.service_account}"
