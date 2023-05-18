@@ -16,4 +16,4 @@ https://github.com/sveronneau/scc-findings-notifications/blob/main/slack/README.
 
 https://github.com/sveronneau/scc-findings-notifications/blob/main/sendgrid/README.md
 
-*Note: All code samples are not meant for production*
+*Note: All code samples are not meant for production.  Please use responsibly.*
