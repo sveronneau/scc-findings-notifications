@@ -16,6 +16,8 @@
 
 const url = require('url');
 const https = require('https');
+const org_id = process.env.org_id;
+const scc_url = `https://console.cloud.google.com/security/command-center/overview?organizationId=${org_id}`
 
 function postMessage(message, callback) {
     'use strict';
@@ -121,11 +123,11 @@ function processEvent(event, callback) {
                     {
                         "keyValue": {
                             "topLabel": "Link to SCC",
-                            "content": 'https://console.cloud.google.com/security/command-center/overview?organizationId=',
+                            "content": `${scc_url}`,
                             "contentMultiline": true,
                             "onClick": {
                                 "openLink": {
-                                    "url": 'https://console.cloud.google.com/security/command-center/overview?organizationId='
+                                    "url": `${scc_url}`
                                 }                            
                             }
                         }
