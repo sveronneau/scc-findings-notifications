@@ -52,4 +52,6 @@ project_id                      = "CHANGE_ME"
 slack_channel                   = "CHANGE_ME"
 ```
 
+![image](../img/scc_slack.png)
+
 *Python code coming from https://cloud.google.com/security-command-center/docs/how-to-enable-real-time-notifications#slack code snippet.*

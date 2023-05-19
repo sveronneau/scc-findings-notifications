@@ -51,4 +51,6 @@ from_email                      = "CHANGE_ME"
 to_emails                       = "CHANGE_ME"
 ```
 
+![image](../img/scc_email.png)
+
 *Python code coming from https://cloud.google.com/security-command-center/docs/how-to-enable-real-time-notifications#sendgrid-email code snippet.*
