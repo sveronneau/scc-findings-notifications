@@ -2,7 +2,12 @@
 
 # Send Google Cloud Platform's Security Command Center notifications to your channel of choice.
 
-The goal of this repo is to allow Security Command Center users to get notified of HIGH and CRITICAL Findings.  Most GCP users will turn on SCC but fail at getting notified which leads to potential security issues.
+Many GCP customers who are using Security Command Center (Free or Premium), say that their biggest pain point is getting notified of findings when they are detected (unless using Slack with SCC Premium since it's native).
+Going into the console on a regular cadence is something that they will do at first but is quickly forgotten.
+
+In order to help get those notifications out, this repo is hosting some Node JS, Python and Terraform code that allows you to get the Findings from Pub/Sub via a Cloud Function to send those notifications out to you via Slack, G-Chat or SendGrid.
+
+It also uses Secrets Manager to store the API tokens and a sensivite field when asked for the Slack Bot Token, SendGrid API Key or G-Chat WebHook URL on the Terraform run.
 
 ## Google Cloud SCC Notifications to Google Chat
 
