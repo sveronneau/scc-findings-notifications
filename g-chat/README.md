@@ -49,4 +49,6 @@ org_id                          = "CHANGE_ME"
 project_id                      = "CHANGE_ME"
 ```
 
+![image](../img/scc_gchat.png)
+
 *Repo inspired by https://github.com/GoogleCloudPlatform/solutions-terraform-scc-notifications-gchat and not forked because of innactivity.*
