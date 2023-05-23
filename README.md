@@ -13,14 +13,23 @@ It also uses Secrets Manager to store the API tokens and a sensivite field when 
 
 ## Google Cloud SCC Notifications to Google Chat
 
-https://github.com/sveronneau/scc-findings-notifications/blob/main/g-chat/README.md
+- https://github.com/sveronneau/scc-findings-notifications/blob/main/g-chat/README.md
 
 ## Google Cloud SCC Notifications to Slack
 
-https://github.com/sveronneau/scc-findings-notifications/blob/main/slack/README.md
+- https://github.com/sveronneau/scc-findings-notifications/blob/main/slack/README.md
 
 ## Google Cloud SCC Notifications to SendGrid
 
-https://github.com/sveronneau/scc-findings-notifications/blob/main/sendgrid/README.md
+- https://github.com/sveronneau/scc-findings-notifications/blob/main/sendgrid/README.md
+
+## Google Cloud SCC Notifications to MS Team
+
+If you wish to send your SCC Findings to MS Team, the easiest way to do so is to use the 'Send an email to a Channel' feature.  Set an email to your MS Team Channel of choice and then use the SendGrid integration to target that email address.
+
+- https://support.microsoft.com/en-us/office/send-an-email-to-a-channel-in-teams-d91db004-d9d7-4a47-82e6-fb1b16dfd51e
+- https://support.microsoft.com/en-us/office/tip-send-email-to-a-channel-2c17dbae-acdf-4209-a761-b463bdaaa4ca
+- https://github.com/sveronneau/scc-findings-notifications/blob/main/sendgrid/README.md
+
 
 *Note: All code samples are not meant for production.  Please use responsibly.*
