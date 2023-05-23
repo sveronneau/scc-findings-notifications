@@ -9,8 +9,6 @@ In order to help get those notifications out, this repo is hosting some Node JS,
 
 It also uses Secrets Manager to store the API tokens and a sensivite field when asked for the Slack Bot Token, SendGrid API Key or G-Chat WebHook URL on the Terraform run.
 
-<img src="https://cdn-icons-png.flaticon.com/512/4823/4823241.png" width="50" height="50">**This repo works great when used in GCP Cloud Shell!**
-
 ## Google Cloud SCC Notifications to Google Chat
 
 - https://github.com/sveronneau/scc-findings-notifications/blob/main/g-chat/README.md
@@ -31,5 +29,9 @@ If you wish to send your SCC Findings to MS Team, the easiest way to do so is to
 - https://support.microsoft.com/en-us/office/tip-send-email-to-a-channel-2c17dbae-acdf-4209-a761-b463bdaaa4ca
 - https://github.com/sveronneau/scc-findings-notifications/blob/main/sendgrid/README.md
 
+<hr>
+<img src="https://cdn-icons-png.flaticon.com/512/4823/4823241.png" width="50" height="50">
+
+**This repo works great when used in GCP Cloud Shell!**
 
 *Note: All code samples are not meant for production.  Please use responsibly.*
