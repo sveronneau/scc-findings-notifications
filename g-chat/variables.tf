@@ -18,6 +18,11 @@ variable bucket_name {
   description = "The name of the bucket."
   type = string
 }
+   
+variable state_bucket_name {
+  description = "The name of the bucket holding the Terraform state file."
+  type = string
+}
 
 variable bucket_location {
   description = "The GCS location."
