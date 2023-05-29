@@ -1,4 +1,5 @@
 bucket_name                     = "scc_sendgrid_notification_code"
+state_bucket_name               = "scc_gchat_notification_state"
 bucket_location                 = "US"
 function_name                   = "scc-notification-sendgrid"
 function_description            = "SCC Notifications to SendGrid"
