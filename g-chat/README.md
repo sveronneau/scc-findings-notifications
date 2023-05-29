@@ -34,20 +34,34 @@ The Cloud Function is written in Node.js which will parse the Pub/Sub event and 
 - You will be prompted to enter the Incoming webhook G-Chat URL from step #6 during TF Apply and Deploy.  
 - This value will be stored in Secrets Manager.
 ```
-bucket_name                     = "scc_gchat_notification_code"
+bucket_name                     = "scc_gchat_notification_code"   
+state_bucket_name               = "scc_gchat_notification_state"   
 bucket_location                 = "US"
 function_name                   = "scc-notification-gchat"
 function_description            = "SCC Notifications to Google Chat"
 function_runtime                = "nodejs16"
 function_location               = "us-central1"
-topic_name                      = "scc-notifications-topic"
+topic_name                      = "scc-notifications-topic-gchat"    
 topic_iam_role                  = "roles/pubsub.publisher"
-scc_notification_name           = "all-active-alerts"
+scc_notification_name           = "all-active-alerts-gchat"    
 scc_notification_description    = "My Custom Cloud Security Command Center Finding Notification Configuration"
 notification_filter             = "(severity=\"HIGH\" OR severity=\"CRITICAL\") AND state=\"ACTIVE\""
+secret_id                       = "scc-gchat"
 org_id                          = "CHANGE_ME"
 project_id                      = "CHANGE_ME"
 ```
+
+## Moving state to a GCS bucket
+
+- Uncomment and Update the backend.tf file with the state bucket name given by the OUTPUT of the Terraform run
+- terraform init
+- answer yes to state migration
+
+## Moving state back to local
+
+- Comment all of the content of the backend.tf file.
+- terraform init
+- answer yes to state migration
 
 ![image](../img/scc_gchat.png)
 
