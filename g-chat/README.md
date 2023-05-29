@@ -63,6 +63,8 @@ project_id                      = "CHANGE_ME"
 - terraform init
 - answer yes to state migration
 
+## Output Example
+
 ![image](../img/scc_gchat.png)
 
 *Repo inspired by https://github.com/GoogleCloudPlatform/solutions-terraform-scc-notifications-gchat and not forked because of innactivity.*
