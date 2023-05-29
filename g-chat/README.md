@@ -53,7 +53,7 @@ project_id                      = "CHANGE_ME"
 
 ## Moving state to a GCS bucket
 
-- Uncomment and Update the backend.tf file with the state bucket name given by the OUTPUT of the Terraform run. (If you cleared the TF output, you can get he value by running: terraform output)
+- Uncomment and Update the backend.tf file with the state bucket name given by the OUTPUT of the Terraform run. (you can also get the value by running: terraform output)
 - terraform init -migrate-state
 
 ## Moving state back to local
