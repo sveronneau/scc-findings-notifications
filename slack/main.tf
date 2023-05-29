@@ -38,9 +38,9 @@ resource "google_storage_bucket" "state" {
   force_destroy                = true
   project                      = var.project_id
 }
-
+  
 resource "google_storage_bucket" "bucket" {
-  name                          = var.bucket_name
+  name                          = "${var.bucket_name}-${random_string.random.result}"
   location                      = var.bucket_location
   uniform_bucket_level_access   = true
   project                       = var.project_id
