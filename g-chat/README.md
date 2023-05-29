@@ -54,14 +54,12 @@ project_id                      = "CHANGE_ME"
 ## Moving state to a GCS bucket
 
 - Uncomment and Update the backend.tf file with the state bucket name given by the OUTPUT of the Terraform run
-- terraform init
-- answer yes to state migration
+- terraform init -migrate-state
 
 ## Moving state back to local
 
 - Comment all of the content of the backend.tf file.
-- terraform init
-- answer yes to state migration
+- terraform init -migrate-state
 
 ## Output Example
 
