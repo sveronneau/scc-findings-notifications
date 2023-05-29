@@ -119,8 +119,8 @@ resource "google_secret_manager_secret_version" "secret-scc" {
   secret_data = var.secret_data
 }
    
-resource "google_storage_bucket" "static" {
- name          = "var.bucket_name"
+resource "google_storage_bucket" "state" {
+ name          = "var.state_bucket_name"
  location      = "US"
  storage_class = "STANDARD"
 
