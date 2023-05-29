@@ -24,8 +24,22 @@ data "archive_file" "source" {
   output_path           = "${path.module}/tmp/scc-googlechat-${local.timestamp}.zip"
 }
 
+resource "random_string" "random" {
+  length           = 4
+  special          = false
+  min_lower        = 4
+  override_special = "/@£$"
+}   
+
+resource "google_storage_bucket" "state" {
+  name                         = "${var.state_bucket_name}-${random_string.random.result}"
+  location                     = var.bucket_location
+  uniform_bucket_level_access  = true
+  project                      = var.project_id
+}
+  
 resource "google_storage_bucket" "bucket" {
-  name                          = var.bucket_name
+  name                          = "${var.bucket_name}-${random_string.random.result}"
   location                      = var.bucket_location
   uniform_bucket_level_access   = true
   project                       = var.project_id
@@ -117,12 +131,4 @@ resource "google_secret_manager_secret" "secret-scc" {
 resource "google_secret_manager_secret_version" "secret-scc" {
   secret = google_secret_manager_secret.secret-scc.id
   secret_data = var.secret_data
-}
-   
-resource "google_storage_bucket" "state" {
- name          = "var.state_bucket_name"
- location      = "US"
- storage_class = "STANDARD"
-
- uniform_bucket_level_access = true
 }
