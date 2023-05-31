@@ -1,5 +1,3 @@
-[![infracost](https://img.shields.io/endpoint?url=https://dashboard.api.infracost.io/shields/json/df040c4a-bc5b-4d55-ad14-16ac275ee225/repos/c335a269-26fa-4531-8e5f-0f5e100aea42/branch/)](https://dashboard.infracost.io/org/sveronneau/repos/c335a269-26fa-4531-8e5f-0f5e100aea42)
-
 # Send Google Cloud Platform's Security Command Center notifications to your channel of choice.
 
 Many GCP customers who are using Security Command Center (Free or Premium), say that their biggest pain point is getting notified of findings when they are detected (unless using Slack with SCC Premium since it's native).
