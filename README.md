@@ -27,6 +27,12 @@ If you wish to send your SCC Findings to MS Team, the easiest way to do so is to
 - https://support.microsoft.com/en-us/office/tip-send-email-to-a-channel-2c17dbae-acdf-4209-a761-b463bdaaa4ca
 - https://github.com/sveronneau/scc-findings-notifications/blob/main/sendgrid/README.md
 
+## Notification Filter
+
+You can change the **notification_filter** value in the **terraform.tfvars** of the channel you are deploying to better suit your needs.  You may want to add a start date to limit scope for example.
+
+- notification_filter = "(severity=\"HIGH\" OR severity=\"CRITICAL\") AND state=\"ACTIVE\" AND create_time>"2023-05-01T05:00:56.941Z""
+
 <hr>
 <img src="https://cdn-icons-png.flaticon.com/512/4823/4823241.png" width="50" height="50">
 
