@@ -1,4 +1,5 @@
 bucket_name                     = "scc_slack_notification_code"
+state_bucket_name               = "scc_slack_notification_state"
 bucket_location                 = "US"
 function_name                   = "scc-notification-slack"
 function_description            = "SCC Notifications to Slack"

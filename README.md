@@ -1,5 +1,3 @@
-[![infracost](https://img.shields.io/endpoint?url=https://dashboard.api.infracost.io/shields/json/df040c4a-bc5b-4d55-ad14-16ac275ee225/repos/c335a269-26fa-4531-8e5f-0f5e100aea42/branch/)](https://dashboard.infracost.io/org/sveronneau/repos/c335a269-26fa-4531-8e5f-0f5e100aea42)
-
 # Send Google Cloud Platform's Security Command Center notifications to your channel of choice.
 
 Many GCP customers who are using Security Command Center (Free or Premium), say that their biggest pain point is getting notified of findings when they are detected (unless using Slack with SCC Premium since it's native).
@@ -28,6 +26,12 @@ If you wish to send your SCC Findings to MS Team, the easiest way to do so is to
 - https://support.microsoft.com/en-us/office/send-an-email-to-a-channel-in-teams-d91db004-d9d7-4a47-82e6-fb1b16dfd51e
 - https://support.microsoft.com/en-us/office/tip-send-email-to-a-channel-2c17dbae-acdf-4209-a761-b463bdaaa4ca
 - https://github.com/sveronneau/scc-findings-notifications/blob/main/sendgrid/README.md
+
+## Notification Filter
+
+You can change the **notification_filter** value in the **terraform.tfvars** of the channel you are deploying to better suit your needs.  You may want to add a start date to limit scope for example.
+
+- notification_filter = "(severity=\"HIGH\" OR severity=\"CRITICAL\") AND state=\"ACTIVE\" AND create_time>"2023-05-01T05:00:56.941Z""
 
 <hr>
 <img src="https://cdn-icons-png.flaticon.com/512/4823/4823241.png" width="50" height="50">

@@ -24,8 +24,23 @@ data "archive_file" "source" {
   output_path   = "${path.module}/tmp/scc-sendgrid-${local.timestamp}.zip"  
 }
 
+resource "random_string" "random" {
+  length           = 4
+  special          = false
+  min_lower        = 4
+  override_special = "/@£$"
+}   
+
+resource "google_storage_bucket" "state" {
+  name                         = "${var.state_bucket_name}-${random_string.random.result}"
+  location                     = var.bucket_location
+  uniform_bucket_level_access  = true
+  force_destroy                = true
+  project                      = var.project_id
+}
+  
 resource "google_storage_bucket" "bucket" {
-  name                          = var.bucket_name
+  name                          = "${var.bucket_name}-${random_string.random.result}"
   location                      = var.bucket_location
   uniform_bucket_level_access   = true
   project                       = var.project_id

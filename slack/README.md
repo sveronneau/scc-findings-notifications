@@ -36,6 +36,7 @@ The Cloud Function is written in Python which will parse the Pub/Sub event and s
 
 ```
 bucket_name                     = "scc_slack_notification_code"
+state_bucket_name               = "scc_gchat_notification_state"
 bucket_location                 = "US"
 function_name                   = "scc-notification-slack"
 function_description            = "SCC Notifications to Slack"
@@ -51,6 +52,18 @@ org_id                          = "CHANGE_ME"
 project_id                      = "CHANGE_ME"
 slack_channel                   = "CHANGE_ME"
 ```
+
+## Moving state to a GCS bucket
+
+- Uncomment and Update the backend.tf file with the state bucket name given by the OUTPUT of the Terraform run. (you can also get the value by running: terraform output)
+- terraform init -migrate-state
+
+## Moving state back to local
+
+- Comment all of the content of the backend.tf file.
+- terraform init -migrate-state
+
+## Output Example
 
 ![image](../img/scc_slack.png)
 
